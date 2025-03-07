@@ -1,2 +1,6 @@
 # Jogo-Individual
-Coma todas as galinhas e sacie a fome da raposa no chicken quest
+1. Chicken Quest
+
+2. Contexto: Sacie a fome da raposa e coma todas as galinhas no chicken quest
+
+3. Controles: Utilize as setas do teclado para controlar a raposa 
