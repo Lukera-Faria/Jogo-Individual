@@ -1,0 +1,62 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Chicken Quest</title>
+
+    <!--carrega as cenas-->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.23.0/dist/phaser.js"></script>
+    <script src="scenes/welcome.js"></script>
+    <script src="scenes/tutorial.js"></script>
+    <script src="scenes/play.js"></script>
+    <script src="scenes/win.js"></script>
+
+    <style>
+        body {
+            margin-top: 1px;
+            padding: 0;
+        }
+
+        canvas {
+            border: 1px solid #000000;
+        }
+    </style>
+
+</head>
+
+<body>
+     <!--carrega uma fonte que uso no jogo-->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <div id="game"></div>
+
+    <script type="text/javascript">
+        // Carrega as configuraçõoes do phaser
+        const config = {
+            type: Phaser.AUTO,
+            scale: {
+                mode: Phaser.Scale.FIT
+            },
+            autoCenter: Phaser.Scale.CENTER,
+            width: 800, //largura da tela do jogo
+            height: 600, //altura da tela do jogo
+            backgroundColor: '#39addd',
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 200 }, // gravidade
+                    debug: false
+                }
+            },
+            parent: "game",
+            dom:{
+               createContainer: true,
+            },
+            scene: [Welcome, tutorial, play, win] // Delinhas todas a cena dentro de um array
+        };
+        
+        var game = new Phaser.Game(config);
+        game.scene.start('Welcome'); // Inicia a cena Welcome
+    </script>
+
+</body>
+</html>
