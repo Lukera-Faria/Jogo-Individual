@@ -12,15 +12,20 @@ class Welcome extends Phaser.Scene {
     preload() {
         this.load.image('menu', 'assets/ChickenMenu.png');
         this.load.image('start', 'assets/startButton.png');
+        this.load.image('pc', 'assets/Pc.png');
+        this.load.image('celular', 'assets/Celular.png');
     }
 
     // Função chamada quando a cena é criada
     create() {
-        
+
         if (game.device.os.desktop){
             console.log("o jogador esta jogando no pc")
+            this.add.image(550, 0, 'pc').setOrigin(0, 0).setScale(0.5).setDepth(1);
+                
         } else{
             console.log("o jogador esta jogando no celular")
+            this.add.image(550, 0, 'celular').setOrigin(0, 0).setScale(0.5).setDepth(1);
         }
 
         this.add.image(0, 0, 'menu').setOrigin(0, 0).setScale(2);
