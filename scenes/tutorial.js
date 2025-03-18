@@ -14,6 +14,13 @@ class tutorial extends Phaser.Scene{
 
     // Função chamada quando a cena é criada
     create() {
+        
+        if (game.device.os.desktop){
+            console.log("o jogador esta jogando no pc")
+        } else{
+            console.log("o jogador esta jogando no celular")
+        }
+
         this.add.image(0, 0, 'menu').setOrigin(0, 0).setScale(2);
         this.add.image(40, 350, 'awsd').setOrigin(0, 0).setScale(0.5);
         this.add.image(30, 100, 'start').setOrigin(0, 0).setScale(1);
@@ -39,5 +46,15 @@ class tutorial extends Phaser.Scene{
             color: '#000000',
             align: 'left'
         });
+        game.scale.on('orientationchange', function(orientation) {
+            if (orientation === Phaser.Scale.PORTRAIT) {
+                console.log('PORTRAIT')
+            }  
+            if (orientation === Phaser.Scale.LANDSCAPE) {
+                console.log('LANDSCAPE')
+            } 
+        });
     }
+
+    
 }

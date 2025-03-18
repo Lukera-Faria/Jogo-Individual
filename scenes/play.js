@@ -99,6 +99,20 @@ class play extends Phaser.Scene {
 
         // Detecta colisões entre o jogador e as galinhas
         this.physics.add.overlap(this.player, this.chicken, this.collectChicken, null, this);
+
+        game.scale.on('orientationchange', function(orientation) {
+            if (orientation === Phaser.Scale.PORTRAIT) {
+                console.log('PORTRAIT')
+            }  
+            if (orientation === Phaser.Scale.LANDSCAPE) {
+                console.log('LANDSCAPE')
+            } 
+        });
+        if (game.device.os.desktop){
+            console.log("o jogador esta jogando no pc")
+        } else{
+            console.log("o jogador esta jogando no celular")
+        }
     }
 
     update() {
